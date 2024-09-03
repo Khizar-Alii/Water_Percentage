@@ -78,12 +78,11 @@ const styles = StyleSheet.create({
   btnz: {
     paddingVertical: 7,
     paddingHorizontal: 40,
-    color: "#4B9CD3",
     fontFamily: "Montserrat",
+    color: "black",
   },
   activeBtn: {
-    backgroundColor: "#4B9CD3",
-    color: "white",
+    backgroundColor: "#BCE5FF",
     borderRadius: 20,
   },
   infoText: {

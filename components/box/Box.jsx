@@ -2,10 +2,13 @@ import React, { useRef } from "react";
 import { StyleSheet, Text, View, PanResponder, Image } from "react-native";
 import Wave from "../Wave";
 import AntDesign from "@expo/vector-icons/AntDesign";
-import {widthPercentageToDP as wp} from "react-native-responsive-screen";
+import {
+  heightPercentageToDP,
+  widthPercentageToDP as wp,
+} from "react-native-responsive-screen";
 const Box = ({ percentage, setPercentage }) => {
   const pan = useRef(null);
-  const sliderHeight = 200; 
+  const sliderHeight = 200;
 
   // PanResponder to handle touch events
   const panResponder = useRef(
@@ -29,75 +32,67 @@ const Box = ({ percentage, setPercentage }) => {
   ).current;
 
   return (
-    <View>
+    <View style={[styles.tankWrapper]}>
       {/* Tank Display */}
-      <View style={[styles.tankWrapper]}>
-        {/* dotted line */}
-        <View
-          style={{
-            borderWidth: 1,
-            width: wp(11),
-            borderColor: "#d3d3d3",
-            position: "absolute",
-            right: 14,
-            top: 52,
-            borderStyle: "dashed",
-          }}
-        />
-        {/* ...... */}
-        <View style={[styles.tank]}>
-          {/* to create a curve on top of the box */}
-          <View style={styles.floatContainer}>
-            <Image
-              source={require("../../assets/images/tophead.png")}
-              style={{
-                width: "100%",
-                height: "40%",
-                objectFit: "fill",
-                // tintColor: "rgba(229,229,232,1)",
-                tintColor: "#EAEAED",
-              }}
-            />
-          </View>
-          {/* ........... */}
-          {/* Percentage text within the container */}
-          <Text style={styles.percentText}>{Math.round(percentage)} %</Text>
-          {/* water wave  */}
-          <Wave percentage={percentage} />
+      {/* to show the dotted lines */}
+      <View
+        style={{
+          borderWidth: 1,
+          width: wp(11),
+          borderColor: "#d3d3d3",
+          position: "absolute",
+          right: 14,
+          top: 52,
+          borderStyle: "dashed",
+        }}
+      />
+      {/* ...... */}
+      <View style={[styles.tank]}>
+        {/* to create a curve on top of the box */}
+        <View style={styles.floatContainer}>
+          <Image
+            source={require("../../assets/images/tophead.png")}
+            style={{
+              width: "100%",
+              height: "40%",
+              objectFit: "fill",
+              // tintColor: "rgba(229,229,232,1)",
+              tintColor: "#EAEAED",
+            }}
+          />
         </View>
-
-        {/* to create slider */}
-        <View style={styles.sliderWrapper}>
-          <View style={styles.sliderLine}>
-            <View style={styles.sliderArea} {...panResponder.panHandlers}>
-              <View style={[styles.sliderHandle, { bottom: `${percentage}%` }]}>
-                <AntDesign name="up" size={15} color="white" />
-                <AntDesign name="down" size={15} color="white" />
-              </View>
-              {/* Horizontal Line that moves with the slider */}
-              <View
-                style={[
-                  styles.horizontalLine,
-                  { bottom: `${percentage + 8}%` },
-                ]}
-              />
-            </View>
-          </View>
-        </View>
-        {/* dotted line */}
-        <View
-          style={{
-            borderWidth: 1,
-            width: wp(11),
-            borderColor: "#d3d3d3",
-            position: "absolute",
-            right: 14,
-            bottom: 12,
-            borderStyle: "dashed",
-          }}
-        />
-        {/* .... */}
+        {/* ........... */}
+        {/* Percentage text within the container */}
+        <Text style={styles.percentText}>{Math.round(percentage)} %</Text>
+        {/* water wave  */}
+        <Wave percentage={percentage} />
       </View>
+
+      {/* to create slider */}
+
+      <View style={styles.sliderArea} {...panResponder.panHandlers}>
+        {/* slides icon that handle up and down */}
+        <View style={[styles.sliderHandle, { bottom: `${percentage}%` }]}>
+          <AntDesign name="up" size={15} color="white" />
+          <AntDesign name="down" size={15} color="white" />
+        </View>
+      <View style={[styles.horizontalLine, { bottom: `${percentage + 8}%` }]} />
+      </View>
+
+      {/* dotted line  at the bottom */}
+      <View
+        style={{
+          borderWidth: 1,
+          width: wp(11),
+          borderColor: "#d3d3d3",
+          position: "absolute",
+          right: 14,
+          bottom: 12,
+          borderStyle: "dashed",
+        }}
+      />
+      {/* Horizontal Line that moves with the slider */}
+      {/* .... */}
     </View>
   );
 };
@@ -112,19 +107,17 @@ const styles = StyleSheet.create({
   },
   tank: {
     width: 250,
-    height: 215,
+    height: 218,
     justifyContent: "flex-end",
     borderWidth: 1,
     borderColor: "#d3d3d3",
     borderTopWidth: 2,
     marginRight: 20,
-    // backgroundColor : "red"
   },
   floatContainer: {
     position: "absolute",
-    // left: 0,
     width: "100%",
-    height: "120%",
+    height: "119%",
   },
   percentText: {
     color: "black",
@@ -135,25 +128,17 @@ const styles = StyleSheet.create({
     left: "40%",
     zIndex: 1,
   },
-  sliderWrapper: {
-    flexDirection: "row",
-    alignItems: "center",
-  },
   sliderArea: {
-    height: 200,
-    width: 10,
-    // backgroundColor: "#EAEAED",
-    backgroundColor : "#FFFFFF",
+    height: 220,
+    width: wp(4),
     alignItems: "center",
     position: "relative",
-  },
-  sliderLine: {
-    backgroundColor: "#EAEAED",
-    // backgroundColor : "#fafafa",
+    backgroundColor: "#fafafa",
     padding: 2,
-    borderRadius: 5,
-    borderWidth : 2,
-    borderColor : "#FBFBFB",
+    borderRadius: 15,
+    paddingTop: 12,
+    borderWidth: 2,
+    borderColor: "#EAEAED",
   },
   sliderHandle: {
     backgroundColor: "black",
@@ -167,11 +152,10 @@ const styles = StyleSheet.create({
   },
   horizontalLine: {
     position: "absolute",
-    right: wp(3),
+    right: wp(4),
     height: 3,
-    width: wp("70%"),
+    width: 280,
     backgroundColor: "black",
-    color : "#30324E"
   },
 });
 

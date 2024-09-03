@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "percentage",
-    "slug": "percentage",
+    "slug": "demo-water",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -38,14 +38,16 @@
         "origin": false
       },
       "eas": {
-        "projectId": "3f00cf2d-7e6c-454d-a5d9-f45f63a2a850"
+        "projectId": "3cb432b4-08d2-4dcb-99c7-f7af0913b50d"
       }
     },
-    "runtimeVersion": {
-      "policy": "appVersion"
-    },
+    "runtimeVersion": "1.0.0",
     "updates": {
-      "url": "https://u.expo.dev/3f00cf2d-7e6c-454d-a5d9-f45f63a2a850"
-    }
+      "fallbackToCacheTimeout": 0,
+      "enabled": true,
+      "checkAutomatically": "ON_LOAD",
+      "url": "https://u.expo.dev/3cb432b4-08d2-4dcb-99c7-f7af0913b50d"
+    },
+    "owner": "codewithkhizi"
   }
 }
