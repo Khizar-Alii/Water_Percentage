@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "center",
-    backgroundColor: "#ffffff",
+    backgroundColor: "#fbfbfb",
   },
   title: {
     fontSize: 18,
@@ -65,18 +65,18 @@ const styles = StyleSheet.create({
     marginTop: 60,
     lineHeight: 22,
     fontFamily: "MontserratMedium",
-    paddingBottom: 15,
+    paddingBottom: 4,
   },
   btnContainer: {
     flexDirection: "row",
     borderColor: "#BCE5FF",
     borderWidth: 1,
-    borderRadius: 20,
+    borderRadius: 300,
     marginVertical: 30,
     padding: 3,
   },
   btnz: {
-    paddingVertical: 10,
+    paddingVertical: 7,
     paddingHorizontal: 40,
     color: "#4B9CD3",
     fontFamily: "Montserrat",

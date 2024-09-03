@@ -142,15 +142,18 @@ const styles = StyleSheet.create({
   sliderArea: {
     height: 200,
     width: 10,
-    backgroundColor: "#EAEAED",
+    // backgroundColor: "#EAEAED",
+    backgroundColor : "#FFFFFF",
     alignItems: "center",
     position: "relative",
   },
   sliderLine: {
     backgroundColor: "#EAEAED",
+    // backgroundColor : "#fafafa",
     padding: 2,
     borderRadius: 5,
-    paddingTop: 15,
+    borderWidth : 2,
+    borderColor : "#FBFBFB",
   },
   sliderHandle: {
     backgroundColor: "black",
@@ -164,10 +167,11 @@ const styles = StyleSheet.create({
   },
   horizontalLine: {
     position: "absolute",
-    right: 10,
+    right: wp(3),
     height: 3,
-    width: wp(81),
+    width: wp("70%"),
     backgroundColor: "black",
+    color : "#30324E"
   },
 });
 
